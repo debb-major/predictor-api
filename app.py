@@ -20,3 +20,10 @@ def predict(sepal_l: float, sepal_w: float, petal_l: float, petal_w: float):
     features = np.array([[sepal_l, sepal_w, petal_l, petal_w]])
     prediction = model.predict(features)
     return {"class_id": int(prediction[0]), "class_name": iris.target_names[prediction[0]]}
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+    
